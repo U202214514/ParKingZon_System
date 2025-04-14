@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Registro - ParkingZon</title>
+  <link rel="stylesheet" href="css/styles2.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <h1 class="logo"><i class="ri-car-line"></i> ParkingZon</h1>
+</header>
+
+<main class="auth-container">
+  <div class="auth-switch">
+    <a href="login.html" id="btn-login1" class="auth-btn">Acceder</a>
+    <button id="btn-register1" class="auth-btn active">Registrar</button>
+  </div>
+
+  <!--  &lt;!&ndash; Register Options &ndash;&gt;-->
+  <!--  <section id="register-options" class="form-section">-->
+  <!--    <h2>Registrar como:</h2>-->
+  <!--    <button class="option-btn" onclick="showRegisterForm('persona')">Persona</button>-->
+  <!--    <button class="option-btn" onclick="showRegisterForm('empresa')">Empresa</button>-->
+  <!--  </section>-->
+
+  <!-- Register Form Persona -->
+  <section id="register-persona" class="form-section">
+    <h2>¡Bienvenid@!</h2>
+
+    <label for="name">Nombre de la Empresa</label>
+    <input id="name" type="text" placeholder="Ej. Estacionamiento Los Jinetes">
+
+    <label for="phone">RUC de la empresa</label>
+    <input id="phone" type="tel" placeholder="Ej. 10164121611">
+
+    <label for="register-email">Correo Electrónico</label>
+    <input id="register-email" type="email" placeholder="Ej. correo@email.com">
+
+    <label for="register-password">Contraseña</label>
+    <input id="register-password" type="password" placeholder="Crea una contraseña">
+
+    <div class="terms">
+      <input type="checkbox" id="terms">
+      <label for="terms">He leído y aceptado los Términos y condiciones.</label>
+    </div>
+
+    <button class="submit-btn" onclick="goToVehicleRegistration()">Sign Up</button>
+  </section>
+</main>
+
+<!--<section id="app-home" class="form-section hidden">-->
+<!--  <header class="header">-->
+<!--    <h1 class="logo"><i class="ri-car-line"></i> ParkingZon</h1>-->
+<!--  </header>-->
+<!--  <nav class="main-options">-->
+<!--    <button class="main-btn">Buscar Estacionamiento</button>-->
+<!--    <button class="main-btn">Estacionamientos Favoritos</button>-->
+<!--    <button class="main-btn">Mis Reservas</button>-->
+<!--  </nav>-->
+<!--</section>-->
+
+<script src="js/auth.js"></script>
+</body>
+</html>

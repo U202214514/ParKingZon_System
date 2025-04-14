@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información Estacionamiento</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-color: #f1f1f1;
+    }
+    .header {
+      background-color: #e60000;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      position: relative;
+    }
+    .back-btn {
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 15px;
+    }
+    .info-box {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .info-box img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .star {
+      color: gold;
+    }
+    .favorito {
+      font-size: 24px;
+      color: gray;
+      cursor: pointer;
+    }
+    .favorito.activo {
+      color: red;
+    }
+    .resena-box {
+      margin-top: 10px;
+    }
+    .resena-box input {
+      width: calc(100% - 100px);
+      padding: 8px;
+    }
+    .resena-box button {
+      padding: 8px 10px;
+      background-color: #e60000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+    .reservar-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #e60000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <span class="back-btn" onclick="goBack()">&#x276E;</span>
+    Más Información
+  </div>
+  <div class="container">
+    <div class="info-box">
+      <img src="https://images.unsplash.com/photo-1606946135825-cb4aa4b6fb95" alt="Estacionamiento" />
+      <h2>Real Plaza Salaverry</h2>
+      <p><strong>Precio:</strong> S/12</p>
+      <p>Av. Gral. Salaverry, Jesús María</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.904994131575!2d-76.97137028474104!3d-12.111587991422094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c68f4de2f9f7%3A0x94e83d4b3425e8d5!2sReal%20Plaza%20Salaverry!5e0!3m2!1ses-419!2spe!4v1640131522693"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <p><strong>Puntaje:</strong> <span class="star">&#9733;&#9733;&#9733;&#9733;&#189;</span></p>
+      <p><strong>Capacidad:</strong> 300 vehículos &nbsp;&nbsp; <strong>Disponibles:</strong> 40 vehículos</p>
+      <p><strong>Favorito:</strong> <span class="favorito" onclick="toggleFavorito(this)">&#9825;</span></p>
+      <div class="resena-box">
+        <label>Reseñas:</label><br/>
+        <input type="text" placeholder="Escriba una reseña..."/>
+        <button>Ver más</button>
+      </div>
+      <button class="reservar-btn" onclick="window.location.href='reserva.html'">Reservar</button>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      history.back();
+    }
+    function toggleFavorito(element) {
+      element.classList.toggle("activo");
+      element.innerHTML = element.classList.contains("activo") ? "&#10084;" : "&#9825;";
+    }
+  </script>
+</body>
+</html>

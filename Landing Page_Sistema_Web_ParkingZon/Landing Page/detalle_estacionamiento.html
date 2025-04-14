@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle Estacionamiento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #d6d5cd;
+    }
+    .header {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .back-btn {
+      font-size: 24px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 10px;
+    }
+    .parking-detail {
+      background-color: white;
+      border-radius: 8px;
+      padding: 15px;
+    }
+    .parking-detail img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .stars {
+      color: gold;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+    }
+    .view-button {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="back-btn" onclick="goBack()">&#x276E;</span>
+    <h2 style="margin: 0;">Detalle Estacionamiento</h2>
+  </div>
+
+  <div class="container">
+    <div class="parking-detail">
+      <img src="https://images.unsplash.com/photo-1606946135825-cb4aa4b6fb95" alt="Estacionamiento" />
+      <h3>Jockey Plaza</h3>
+      <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+      <p><strong>Precio:</strong> S/ 10</p>
+      <p><strong>Capacidad:</strong> 300 autos</p>
+      <p><strong>Dirección:</strong> Av. Javier Prado Este 4200, Santiago de Surco, Lima</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.904994131575!2d-76.97137028474104!3d-12.111587991422094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c68f4de2f9f7%3A0x94e83d4b3425e8d5!2sJockey%20Plaza!5e0!3m2!1ses-419!2spe!4v1640131522693"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <a href="reserva.html"><button class="view-button" onclick="goToApp()">Reservar</button></a>
+  <script>
+    function goBack() {
+      history.back();
+    }
+  </script>
+
+</body>
+</html>

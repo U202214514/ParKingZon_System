@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Registro - ParkingZon</title>
+  <link rel="stylesheet" href="css/styles2.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo"><i class="ri-car-line"></i> ParkingZon</h1>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-switch">
+      <button id="btn-login" class="auth-btn active">Acceder</button>
+      <a href="register.html">
+      <button id="btn-register" class="auth-btn">Registrar</button>
+      </a>
+    </div>
+
+    <!-- Login Form -->
+<!--    <section id="login-form" class="form-section">-->
+<!--      <h2>¡Bienvenido!</h2>-->
+<!--      <label for="login-email">Correo Electrónico</label>-->
+<!--      <input id="login-email" type="email" placeholder="Ingresa tu correo">-->
+
+<!--      <label for="login-password">Contraseña</label>-->
+<!--      <input id="login-password" type="password" placeholder="Ingresa tu contraseña">-->
+
+<!--      <button class="submit-btn" onclick="goToApp()">Log in</button>-->
+<!--    </section>-->
+
+    <!-- Register Options -->
+    <section id="register-options" class="form-section">
+      <h2>Registrar como:</h2>
+      <a href="LoginPersona.html">
+      <button class="option-btn" >Persona</button>
+      </a>
+      <a href="LoginEmpresa.html">
+      <button class="option-btn" >Empresa</button>
+      </a>
+    </section>
+
+<!--    &lt;!&ndash; Register Form Persona &ndash;&gt;-->
+<!--    <section id="register-persona" class="form-section hidden">-->
+<!--      <h2>¡Bienvenid@!</h2>-->
+
+<!--      <label for="name">Nombre y Apellidos</label>-->
+<!--      <input id="name" type="text" placeholder="Ej. Juan Perez">-->
+
+<!--      <label for="phone">Celular</label>-->
+<!--      <input id="phone" type="tel" placeholder="Ej. 987654321">-->
+
+<!--      <label for="register-email">Correo Electrónico</label>-->
+<!--      <input id="register-email" type="email" placeholder="Ej. correo@email.com">-->
+
+<!--      <label for="register-password">Contraseña</label>-->
+<!--      <input id="register-password" type="password" placeholder="Crea una contraseña">-->
+
+<!--      <div class="terms">-->
+<!--        <input type="checkbox" id="terms">-->
+<!--        <label for="terms">He leído y aceptado los Términos y condiciones.</label>-->
+<!--      </div>-->
+
+<!--      <button class="submit-btn" onclick="goToVehicleRegistration()">Sign Up</button>-->
+<!--    </section>-->
+  </main>
+
+  <section id="app-home" class="form-section hidden">
+    <header class="header">
+      <h1 class="logo"><i class="ri-car-line"></i> ParkingZon</h1>
+    </header>
+    <nav class="main-options">
+      <button class="main-btn">Buscar Estacionamiento</button>
+      <button class="main-btn">Estacionamientos Favoritos</button>
+      <button class="main-btn">Mis Reservas</button>
+    </nav>
+  </section>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

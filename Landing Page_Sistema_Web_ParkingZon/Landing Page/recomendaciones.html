@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recomendaciones</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #d6d5cd;
+    }
+    .header {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .back-btn {
+      font-size: 24px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 10px;
+    }
+    .parking-card {
+      background-color: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .parking-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .parking-info {
+      margin-top: 10px;
+    }
+    .stars {
+      color: gold;
+    }
+    .view-button {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="back-btn" onclick="goBack()">&#x276E;</span>
+    <h2 style="margin: 0;">Recomendaciones</h2>
+  </div>
+
+  <div class="container">
+    <div class="parking-card">
+      <img src="https://images.unsplash.com/photo-1606946135825-cb4aa4b6fb95" alt="Estacionamiento" />
+      <div class="parking-info">
+        <strong>Jockey Plaza</strong><br/>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><br/>
+        Precio: S/ 10<br/>
+        Capacidad: 300 autos<br/>
+        Dirección: Av. Javier Prado Este 4200, Surco<br/>
+        <button class="view-button" onclick="verEstacionamiento()">Ver</button>
+      </div>
+    </div>
+    <!-- Puedes copiar y pegar más tarjetas como esta para más estacionamientos -->
+  </div>
+
+  <script>
+    function goBack() {
+      history.back();
+    }
+    function verEstacionamiento() {
+      window.location.href = "detalle_estacionamiento.html";
+    }
+  </script>
+
+</body>
+</html>

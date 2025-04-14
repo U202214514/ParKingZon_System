@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservar Estacionamiento</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
+    .header { background-color: red; color: white; padding: 10px; text-align: center; font-size: 18px; }
+    .container { padding: 20px; background-color: white; max-width: 400px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input, select, button {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border-radius: 5px; border: 1px solid #ccc;
+    }
+    .btn-red {
+      background-color: red; color: white; border: none;
+      font-size: 16px; margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">Reservar</div>
+  <div class="container">
+    <form id="formReserva" onsubmit="confirmarReserva(event)">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required />
+
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" required />
+
+      <label for="pago">Método de pago:</label>
+      <select id="pago" required>
+        <option value="">Selecciona</option>
+        <option value="tarjeta">Tarjeta</option>
+        <option value="efectivo">Efectivo</option>
+        <option value="yape">Yape</option>
+        <option value="plin">Plin</option>
+      </select>
+
+      <button type="submit" class="btn-red">Confirmar reserva</button>
+    </form>
+  </div>
+
+  <script>
+    function confirmarReserva(e) {
+      e.preventDefault();
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value;
+      const pago = document.getElementById('pago').value;
+
+      alert(`Reserva confirmada para el ${fecha} a las ${hora} con pago por ${pago}.`);
+      // Aquí podrías redirigir o guardar en localStorage si lo deseas
+    }
+  </script>
+</body>
+</html>

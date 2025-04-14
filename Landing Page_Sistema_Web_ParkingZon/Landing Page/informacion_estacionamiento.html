@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Información de Estacionamiento</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
+    .header { background-color: red; color: white; padding: 10px; text-align: center; font-size: 18px; }
+    .container { padding: 20px; background-color: white; max-width: 400px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    img { width: 100%; border-radius: 8px; }
+    .info { margin: 10px 0; }
+    .stars { color: orange; }
+    button, select, input[type="text"] {
+      padding: 10px; border: none; border-radius: 5px; font-size: 14px;
+    }
+    .btn-red { background-color: red; color: white; width: 100%; margin-top: 10px; }
+    .resena-box { margin-top: 15px; }
+    .resenas-list { margin-top: 10px; border-top: 1px solid #ccc; padding-top: 10px; }
+    .resena-item { background-color: #f1f1f1; padding: 8px; border-radius: 5px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="header">Más Información</div>
+  <div class="container">
+    <img src="https://i.ibb.co/K6ygstM/estacionamiento.jpg" alt="Estacionamiento"/>
+    <h2>Real Plaza Salaverry</h2>
+    <p><strong>Precio:</strong> S/12</p>
+    <p>Av. Gral. Salaverry, Jesús María</p>
+
+    <iframe src="https://maps.google.com/maps?q=real%20plaza%20salaverry&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="180" frameborder="0" style="border-radius:8px;" allowfullscreen></iframe>
+
+    <div class="info"><strong>Puntaje:</strong> ⭐⭐⭐⭐☆</div>
+    <div class="info"><strong>Capacidad:</strong> 300 vehículos</div>
+    <div class="info"><strong>Disponibles:</strong> 40 vehículos</div>
+
+    <div class="info"><strong>Favorito:</strong> ❤️</div>
+
+    <div class="resena-box">
+      <label for="resena"><strong>Reseñas:</strong></label>
+      <input type="text" id="resena" placeholder="Escribe una reseña..." style="width: 100%; margin-top: 5px;" />
+      <button onclick="agregarResena()" class="btn-red" style="margin-top: 8px;">Enviar reseña</button>
+      <div class="resenas-list" id="listaResenas"></div>
+    </div>
+
+    <button class="btn-red" onclick="window.location.href='reserva.html'">Reservar</button>
+  </div>
+
+  <script>
+    function agregarResena() {
+      const input = document.getElementById('resena');
+      const texto = input.value.trim();
+      if (texto !== '') {
+        let resenas = JSON.parse(localStorage.getItem('resenas')) || [];
+        resenas.push(texto);
+        localStorage.setItem('resenas', JSON.stringify(resenas));
+        input.value = '';
+        mostrarResenas();
+      }
+    }
+
+    function mostrarResenas() {
+      const lista = document.getElementById('listaResenas');
+      const resenas = JSON.parse(localStorage.getItem('resenas')) || [];
+      lista.innerHTML = '';
+      resenas.forEach(r => {
+        const div = document.createElement('div');
+        div.className = 'resena-item';
+        div.textContent = r;
+        lista.appendChild(div);
+      });
+    }
+
+    window.onload = mostrarResenas;
+  </script>
+</body>
+</html>

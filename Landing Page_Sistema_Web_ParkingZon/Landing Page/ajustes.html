@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ajustes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #d6d5cd;
+    }
+    .header {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .back-btn {
+      font-size: 24px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 10px;
+    }
+    .option {
+      background-color: white;
+      margin: 10px 0;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .submenu {
+      display: none;
+      background-color: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .submenu input,
+    .submenu select {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="back-btn" onclick="goBack()">&#x276E;</span>
+    <h2 style="margin: 0;">Ajustes</h2>
+  </div>
+
+  <div class="container" id="main-menu">
+    <div class="option" onclick="showSubmenu('accesibilidad')">Accesibilidad &#x276F;</div>
+    <div class="option" onclick="showSubmenu('tono')">Tono de notificaciones &#x276F;</div>
+    <div class="option" onclick="showSubmenu('volumen')">Volumen de notificaciones &#x276F;</div>
+    <div class="option" onclick="showSubmenu('preferencias')">Preferencias &#x276F;</div>
+    <div class="option" onclick="showSubmenu('privacidad')">Privacidad &#x276F;</div>
+  </div>
+
+  <!-- Submenús -->
+  <div class="container submenu" id="accesibilidad">
+    <h3>Accesibilidad</h3>
+    <label><input type="checkbox" onchange="saveSetting('texto_grande', this.checked)"> Texto grande</label>
+    <label><input type="checkbox" onchange="saveSetting('contraste_alto', this.checked)"> Contraste alto</label>
+  </div>
+
+  <div class="container submenu" id="tono">
+    <h3>Tono de notificaciones</h3>
+    <select onchange="saveSetting('tono_notificacion', this.value)">
+      <option>Tono 1</option>
+      <option>Tono 2</option>
+      <option>Tono 3</option>
+    </select>
+  </div>
+
+  <div class="container submenu" id="volumen">
+    <h3>Volumen de notificaciones</h3>
+    <input type="range" min="0" max="100" value="50" oninput="saveSetting('volumen_notificacion', this.value)"/>
+  </div>
+
+  <div class="container submenu" id="preferencias">
+    <h3>Preferencias</h3>
+    <label><input type="checkbox" onchange="saveSetting('modo_oscuro', this.checked)"> Modo oscuro</label>
+    <label><input type="checkbox" onchange="saveSetting('sugerencias', this.checked)"> Activar sugerencias</label>
+  </div>
+
+  <div class="container submenu" id="privacidad">
+    <h3>Privacidad</h3>
+    <label><input type="checkbox" onchange="saveSetting('compartir_datos', this.checked)"> Compartir datos de uso</label>
+    <label><input type="checkbox" onchange="saveSetting('reportes_auto', this.checked)"> Enviar reportes automáticamente</label>
+  </div>
+
+  <script>
+    function showSubmenu(id) {
+      document.getElementById('main-menu').style.display = 'none';
+      document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function goBack() {
+      document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+      document.getElementById('main-menu').style.display = 'block';
+    }
+
+    function saveSetting(key, value) {
+      console.log("Guardando ajuste:", key, value);
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  </script>
+
+</body>
+</html>

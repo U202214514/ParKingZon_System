@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Perfil</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f2f2f2; }
+    .header { background-color: red; color: white; text-align: center; padding: 12px; font-size: 20px; }
+    .container { padding: 20px; max-width: 400px; margin: auto; background-color: white; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+    .foto-perfil { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 10px auto; display: block; }
+    .center { text-align: center; }
+    .btn { width: 100%; padding: 10px; margin-top: 10px; border: none; border-radius: 5px; color: white; background-color: red; font-size: 16px; cursor: pointer; }
+    label { display: block; margin-top: 15px; font-weight: bold; }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border-radius: 5px; border: 1px solid #ccc;
+    }
+    #actualizar-contrasena, #actualizar-info { display: none; }
+    .back-btn { position: absolute; left: 10px; top: 14px; font-size: 20px; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <!-- Perfil -->
+  <div id="perfil">
+    <div class="header">Perfil</div>
+    <div class="container center">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto" class="foto-perfil" />
+      <h2>Marco Pereyra</h2>
+      <p>marcopereyra69@hotmail.com</p>
+      <p>Ford Galaxie 500</p>
+      <p>SCK - 420</p>
+
+      <button class="btn" onclick="mostrar('actualizar-contrasena')">Actualizar Contraseña</button>
+      <button class="btn" onclick="mostrar('actualizar-info')">Actualizar Información</button>
+      <button class="btn" style="background-color: gray;" onclick="alert('Cuenta eliminada')">Eliminar Cuenta</button>
+    </div>
+  </div>
+
+  <!-- Actualizar Contraseña -->
+  <div id="actualizar-contrasena">
+    <div class="header"><span class="back-btn" onclick="volver()">&#10094;</span>Contraseña</div>
+    <div class="container">
+      <label>Contraseña:</label>
+      <input type="password" />
+
+      <label>Nueva Contraseña:</label>
+      <input type="password" />
+
+      <label>Confirmar Nueva Contraseña:</label>
+      <input type="password" />
+
+      <button class="btn">Actualizar Contraseña</button>
+    </div>
+  </div>
+
+  <!-- Actualizar Información -->
+  <div id="actualizar-info">
+    <div class="header"><span class="back-btn" onclick="volver()">&#10094;</span>Perfil</div>
+    <div class="container">
+      <label>Nombre:</label>
+      <input type="text" value="Marco Pereyra" />
+
+      <label>Correo:</label>
+      <input type="email" value="marcopereyra69@hotmail.com" />
+
+      <label>Auto:</label>
+      <input type="text" value="Ford Galaxie 500" />
+
+      <label>Matrícula:</label>
+      <input type="text" value="SCK - 420" />
+
+      <label>Foto:</label>
+      <input type="file" accept="image/*" />
+
+      <button class="btn">Actualizar Información</button>
+    </div>
+  </div>
+
+  <script>
+    function mostrar(id) {
+      document.getElementById("perfil").style.display = "none";
+      document.getElementById("actualizar-contrasena").style.display = "none";
+      document.getElementById("actualizar-info").style.display = "none";
+      document.getElementById(id).style.display = "block";
+    }
+    function volver() {
+      document.getElementById("perfil").style.display = "block";
+      document.getElementById("actualizar-contrasena").style.display = "none";
+      document.getElementById("actualizar-info").style.display = "none";
+    }
+  </script>
+</body>
+</html>

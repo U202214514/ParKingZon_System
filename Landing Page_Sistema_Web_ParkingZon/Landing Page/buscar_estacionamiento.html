@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buscar Estacionamiento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #d6d5cd;
+    }
+    .header {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .back-btn {
+      font-size: 24px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 10px;
+    }
+    .filter-box, .parking-list, .map-container {
+      background-color: white;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .filter-box select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+    .parking-item {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .parking-item:last-child {
+      border-bottom: none;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 4px;
+    }
+    .view-button {
+      background-color: #e60000;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="back-btn" onclick="goBack()">&#x276E;</span>
+    <h2 style="margin: 0;">Buscar Estacionamiento</h2>
+  </div>
+
+  <div class="container">
+    <div class="filter-box">
+      <h3>Filtrar búsqueda</h3>
+      <select id="distrito">
+        <option value="">Selecciona un distrito</option>
+        <option value="Miraflores">Miraflores</option>
+        <option value="San Isidro">San Isidro</option>
+        <option value="Surco">Santiago de Surco</option>
+        <option value="La Molina">La Molina</option>
+        <option value="Lince">Lince</option>
+        <option value="San Miguel">San Miguel</option>
+      </select>
+      <select id="local">
+        <option value="">Selecciona centro comercial/local</option>
+        <option value="Larcomar">Larcomar</option>
+        <option value="Jockey Plaza">Jockey Plaza</option>
+        <option value="Plaza San Miguel">Plaza San Miguel</option>
+        <option value="Real Plaza Salaverry">Real Plaza Salaverry</option>
+      </select>
+      <select id="precio">
+        <option value="">Selecciona precio máximo</option>
+        <option value="5">Hasta S/ 5</option>
+        <option value="10">Hasta S/ 10</option>
+        <option value="15">Hasta S/ 15</option>
+      </select>
+      <button onclick="filtrar()">Aplicar filtros</button>
+      <a href="recomendaciones.html"> <button class="view-button" onclick="verEstacionamiento()">Ver</button></a>
+    </div>
+
+    <div class="parking-list" id="lista-estacionamientos">
+      <h3>Estacionamientos disponibles</h3>
+      <!-- Se llenará dinámicamente -->
+    </div>
+
+    <div class="map-container">
+      <h3>Mapa</h3>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15600.16307158128!2d-77.0427935!3d-12.1195718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1616199789341!5m2!1ses!2spe" 
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const estacionamientos = [
+      { distrito: "Miraflores", local: "Larcomar", precio: 10 },
+      { distrito: "San Isidro", local: "Real Plaza Salaverry", precio: 8 },
+      { distrito: "Surco", local: "Jockey Plaza", precio: 12 },
+      { distrito: "San Miguel", local: "Plaza San Miguel", precio: 6 },
+      { distrito: "La Molina", local: "Jockey Plaza", precio: 10 },
+      { distrito: "Lince", local: "Real Plaza Salaverry", precio: 7 }
+    ];
+
+    function filtrar() {
+      const distrito = document.getElementById('distrito').value;
+      const local = document.getElementById('local').value;
+      const precioMax = parseInt(document.getElementById('precio').value);
+
+      const lista = document.getElementById('lista-estacionamientos');
+      lista.innerHTML = "<h3>Estacionamientos disponibles</h3>";
+
+      const filtrados = estacionamientos.filter(e => {
+        return (!distrito || e.distrito === distrito) &&
+               (!local || e.local === local) &&
+               (!precioMax || e.precio <= precioMax);
+      });
+
+      if (filtrados.length === 0) {
+        lista.innerHTML += "<p>No se encontraron resultados.</p>";
+        return;
+      }
+
+      filtrados.forEach(e => {
+        lista.innerHTML += `
+          <div class="parking-item">
+            <strong>${e.local}</strong><br/>
+            Distrito: ${e.distrito} <br/>
+            Precio: S/ ${e.precio}
+          </div>`;
+      });
+    }
+
+    function goBack() {
+      history.back();
+    }
+  </script>
+
+</body>
+</html>
